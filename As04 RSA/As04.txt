@@ -1,0 +1,10 @@
+The purpose of using "if name == "main":" is to specify a block of code that should only run when the file is executed as the main script and not when it is imported as a module. This is often used to define a set of statements or functions that should be executed or tested only when the file is run directly.
+
+
+list(s): This converts the string s into a list of individual characters. For example, if s is "Hello", list(s) would be ['H', 'e', 'l', 'l', 'o'].
+
+[chr(encrypt_block(ord(x))) for x in list(s)]: This is a list comprehension that iterates over each character x in the list of characters list(s). For each character, it applies the function encrypt_block to its Unicode value (ord(x)), then converts the resulting encrypted value back into a character using chr(). The encrypted characters are collected into a new list.
+
+''.join(...): This joins the list of encrypted characters into a single string, with an empty string '' as the separator between the characters. This effectively concatenates all the characters together.
+
+return: This returns the resulting encrypted string from the function.

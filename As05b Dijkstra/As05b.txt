@@ -1,0 +1,47 @@
+Dijkstra's algo gives the Minimum values from a specific point (source) to each of the vertices in the Graph
+
+main fuctions:
+
+1. consider firstly that all the distances are infinity
+2. consider a fix source as u and check for each distination v
+2. then 
+        if dist(u) + cost(from u to v) < dist(v)
+        then dist(v) = dist(u) + cost(from u to v)
+
+
+void java.util.Arrays.fill(int[] a, int val)
+Assigns the specified int value to each element of the specified array of ints.
+    Parameters:
+        a the array to be filled
+        val the value to be stored in all elements of the array
+
+
+adjacencyList.get(source): This retrieves the value associated with the source key from the adjacencyList dictionary-like object. If the source key is present in the dictionary, it returns the corresponding value (which should be a set of edges). If the source key is not found, it returns None.
+
+.add(edge): Assuming the value retrieved from adjacencyList.get(source) is a set, this line adds the edge to the set using the add() method. The edge represents a connection between vertices in a graph.
+
+
+PriorityQueue<Edge> minHeap = new PriorityQueue<>((a, b) -> a.weight - b.weight);
+
+PriorityQueue<Edge>: This specifies the type of elements that the priority queue will hold. In this case, it is Edge, indicating that the priority queue will store objects of the Edge class.
+
+minHeap: This is the name given to the PriorityQueue object.
+
+new PriorityQueue<>(...): This creates a new instance of the PriorityQueue class. The parentheses allow you to provide additional parameters to the constructor.
+
+(a, b) -> a.weight - b.weight: This is a lambda expression that defines a comparison function used to determine the order of elements in the priority queue. The lambda expression compares the weight property of two Edge objects (a and b) and returns the result of the subtraction.
+
+If the result is negative (i.e., a.weight is less than b.weight), it means a has higher priority.
+If the result is zero, the elements have equal priority.
+If the result is positive, b has higher priority.
+The lambda expression defines a custom ordering based on the weight property of the Edge objects. In this case, the priority queue will store Edge objects in ascending order of their weight property.
+
+
+boolean java.util.PriorityQueue.offer(Edge e)
+Inserts the specified element into this priority queue.
+    Parameters:
+        e the element to add
+    Returns:
+        true (as specified by Queue.offer)
+    Throws:
+        ClassCastException - if the specified element cannot be compared with elements currently in this priority queue

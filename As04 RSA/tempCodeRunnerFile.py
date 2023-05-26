@@ -1,1 +1,1 @@
-decrypt_string
+if __name__ == "__main__":
