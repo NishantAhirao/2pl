@@ -4,10 +4,13 @@ import java.util.*;
 // Class
 // For transposition cipher
 public class Tr {
+   
     // Member variables of this class
     public static String selectedKey;
     public static char sortedKey[];
     public static int sortedKeyPos[];
+   
+   
     // Constructor 1 of this class
     // Default constructor defining the default key
     public Tr() {
@@ -15,6 +18,8 @@ public class Tr {
         sortedKeyPos = new int[selectedKey.length()];
         sortedKey = selectedKey.toCharArray();
     }
+   
+   
     // Constructor 2 of this class
     // Parameterized constructor defining the custom key
     public Tr(String mykey) {
@@ -22,6 +27,8 @@ public class Tr {
         sortedKeyPos = new int[selectedKey.length()];
         sortedKey = selectedKey.toCharArray();
     }
+  
+  
     // Method 1 - doProcessOnKey()
     // To reorder data do the sorting on selected key
     public static void doProcessOnKey() {
@@ -55,12 +62,13 @@ public class Tr {
             }
         }
     }
+   
+   
+   
     // Method 2 - doEncryption()
     // To encrypt the targeted string
     public static String doEncryption(String plainText) {
-        int min, i, j;
-        char orginalKey[] = selectedKey.toCharArray();
-        char temp;
+        int i, j;
         doProcessOnKey();
         // Step 3: Generating the encrypted message by
         // doing encryption using Transpotion Cipher
@@ -97,7 +105,7 @@ public class Tr {
                     break;
                 }
             }
-            for (j = 0; j <= row; j++) {
+            for (j = 0; j <=row; j++) {
                 len++;
                 encry[len] = pmat[j][k];
             }
@@ -105,6 +113,8 @@ public class Tr {
         String p1 = new String(encry);
         return (new String(p1));
     }
+   
+   
     // Method 3 - doEncryption()
     // To decrypt the targeted string
     public static String doDecryption(String s) {
@@ -143,16 +153,18 @@ public class Tr {
         p1[k++] = '\0';
         return (new String(p1));
     }
-    @SuppressWarnings("static-access")
+   
+   
+    // @SuppressWarnings("static-access")
     // Method 4 - main()
     // Main driver method
     public static void main(String[] args) {
         // Creating object of class in main method
         Tr tc = new Tr();
         // Printing the ciphere text
-        // Custom input - Hello Geek
+        // Custom input - Hello Nish
         System.out.println("Cipher Text : " +
-                tc.doEncryption("Hello Mayuresh"));
+                tc.doEncryption("Hello Nish"));
     }
 }
 

@@ -1,0 +1,12 @@
+LinkedList <Integer>[] adjacencyList;
+
+The code snippet you provided declares an array of LinkedLists, where each LinkedList is parameterized with the Integer type. This is commonly used to represent an adjacency list in graph algorithms.
+
+In graph theory, an adjacency list is a collection of lists or arrays used to represent the connections between vertices in a graph. Each element of the array represents a vertex, and the corresponding LinkedList stores the adjacent vertices or neighbors of that vertex.
+
+
+int firstElement = queue.poll(); // Removes and returns the first element
+
+
+// Accessing the first element without removing it
+int peekElement = queue.peek();

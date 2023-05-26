@@ -2,40 +2,46 @@ import java.util.*;
 
 public class GraphTraversal {
     private int vertices;
-    private LinkedList<Integer>[] adjacencyList;
+    private LinkedList <Integer>[] adjacencyList;  //array of LinkedLists
 
     public GraphTraversal(int vertices) {
         this.vertices = vertices;
-        adjacencyList = new LinkedList[vertices];
+        adjacencyList = new LinkedList[vertices];   //constructure
         for (int i = 0; i < vertices; i++) {
-            adjacencyList[i] = new LinkedList<>();
+            adjacencyList[i] = new LinkedList<>();    //linkedlist is the element of array "adjacencyList" 
         }
     }
 
+
     public void addEdge(int source, int destination) {
-        adjacencyList[source].add(destination);
+        adjacencyList[source].add(destination);       //e.g. 0 5 add 5 to the LL which is at 0th position of array
     }
 
+
+
     public void breadthFirstSearch(int startVertex) {
-        boolean[] visited = new boolean[vertices];
-        Queue<Integer> queue = new LinkedList<>();
+        boolean[] visited = new boolean[vertices];  //array of type boolean
+        Queue<Integer> queue = new LinkedList<>();   // instantiate a LinkedList object and assign it to the queue variable
 
         visited[startVertex] = true;
         queue.add(startVertex);
 
         while (!queue.isEmpty()) {
-            int currentVertex = queue.poll();
+            int currentVertex = queue.poll();  //remove and access the first element in the queue
             System.out.print(currentVertex + " ");
 
-            LinkedList<Integer> adjacentVertices = adjacencyList[currentVertex];
+            LinkedList<Integer> adjacentVertices = adjacencyList[currentVertex]; //assigning the LL from AdL to AdV
             for (int adjacentVertex : adjacentVertices) {
-                if (!visited[adjacentVertex]) {
+                if (!visited[adjacentVertex]) {         // if veetex is not visited then the condi. becomes true then mark it visited then add it to queue new loop begins
                     visited[adjacentVertex] = true;
                     queue.add(adjacentVertex);
                 }
             }
         }
     }
+
+
+
 
     public void depthFirstSearch(int startVertex) {
         boolean[] visited = new boolean[vertices];
@@ -54,13 +60,16 @@ public class GraphTraversal {
         }
     }
 
+
+
+
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
         System.out.print("Enter the number of vertices: ");
         int vertices = scanner.nextInt();
 
-        GraphTraversal graph = new GraphTraversal(vertices);
+        GraphTraversal graph = new GraphTraversal(vertices); //create obj graph of GraphTraversal
 
         System.out.print("Enter the number of edges: ");
         int edges = scanner.nextInt();
