@@ -1,0 +1,10 @@
+((messageLenBytes + 8) >>> 6) + 1;
+
+messageLenBytes + 8: This adds 8 bytes to the length of the message. The purpose of adding 8 is often to account for padding or additional data that may be required in the cryptographic algorithm being used.
+
+>>> 6: The >>> operator performs a logical right shift by 6 bits. This effectively divides the value by 64, as shifting right by 6 bits is equivalent to dividing by 2^6, which is 64.
+
++ 1: Adds 1 to the result obtained from the previous step. This is likely done to ensure that at least one block is used, even if the message length is less than 64 bits.
+
+
+messageLenBits >>>= 8 performs a logical right shift operation on the variable messageLenBits by 8 bits and assigns the result back to messageLenBits.

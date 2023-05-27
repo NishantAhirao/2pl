@@ -1,0 +1,64 @@
+void java.lang.Throwable.printStackTrace()
+Prints this throwable and its backtrace to the standard error stream. This method prints a stack trace for this Throwable object on the error output stream that is the value of the field System.err. 
+
+
+
+Cipher cipher = Cipher.getInstance("AES/CBC/NoPadding", "SunJCE");
+
+"AES/CBC/NoPadding": This specifies the algorithm, mode, and padding scheme to be used by the cipher. In this case, AES (Advanced Encryption Standard) is the symmetric encryption algorithm used, CBC is the mode of operation, and NoPadding indicates that no padding is applied to the input data. It's worth noting that in practice, using no padding can be insecure and lead to vulnerabilities in certain scenarios. Padding schemes like PKCS#7 or PKCS#5 are commonly recommended to ensure data integrity and security.
+
+"SunJCE": This parameter specifies the provider implementation for the cipher. In this case, "SunJCE" refers to the Sun (Oracle) implementation of the Java Cryptography Extension (JCE). The JCE is a framework in Java that provides cryptographic functionality, and different providers can be used to implement the algorithms and services provided by the JCE.
+
+
+
+SecretKeySpec key = new SecretKeySpec(encryptionKey.getBytes("UTF-8"), "AES"); creates a SecretKeySpec object that represents a secret key for the AES (Advanced Encryption Standard) algorithm.
+
+Here's a breakdown of the code:
+
+encryptionKey: This variable likely represents a string that contains the encryption key used for AES. The getBytes("UTF-8") method converts the string into a byte array using the UTF-8 encoding.
+
+"UTF-8": This specifies the character encoding to be used when converting the encryption key string to bytes. In this case, UTF-8 encoding is used, which is a widely used encoding that supports a wide range of characters.
+
+"AES": This parameter specifies the algorithm (AES) for which the secret key is being generated. The SecretKeySpec class is used to wrap the key material and provide access to it in a suitable format for cryptographic operations.
+
+
+
+
+cipher.init(Cipher.ENCRYPT_MODE, key, new IvParameterSpec(IV.getBytes("UTF-8"))); initializes the Cipher object for encryption using the provided key and initialization vector (IV).
+
+Here's an explanation of the parameters used in the init method:
+
+Cipher.ENCRYPT_MODE: This parameter specifies the mode of operation for the cipher, indicating that encryption will be performed. Cipher is a class in Java's cryptography library that provides encryption and decryption functionality.
+
+key: This parameter represents the secret key used for encryption. It is an instance of SecretKeySpec created from the encryption key using the AES algorithm, as mentioned in the previous code snippet.
+
+new IvParameterSpec(IV.getBytes("UTF-8")): This parameter represents the initialization vector (IV) used for encryption. An IV is required for certain block cipher modes like CBC to ensure randomness and security in the encryption process. The IV is provided as a byte array obtained by converting the IV string to bytes using the UTF-8 encoding.
+
+
+
+
+
+cipher.doFinal(plainText.getBytes("UTF-8")) performs the final encryption operation on the provided plaintext using the initialized Cipher object, and returns the encrypted result as a byte array.
+
+Here's a breakdown of the code:
+
+plainText: This variable likely represents the plaintext that you want to encrypt. The getBytes("UTF-8") method converts the plaintext string to bytes using the UTF-8 encoding.
+
+cipher.doFinal(): This method is called on the Cipher object to perform the final encryption operation. It takes the plaintext bytes as input and returns the encrypted result as a byte array.
+
+"UTF-8": This parameter specifies the character encoding used when converting the plaintext string to bytes. In this case, UTF-8 encoding is used, which is a widely used encoding that supports a wide range of characters.
+
+
+
+
+String(cipher.doFinal(cipherText), "UTF-8") performs the final decryption operation on the provided ciphertext using the initialized Cipher object, and returns the decrypted result as a string.
+
+Here's a breakdown of the code:
+
+cipherText: This variable likely represents the ciphertext that you want to decrypt. It is assumed to be a byte array.
+
+cipher.doFinal(cipherText): This method is called on the Cipher object to perform the final decryption operation. It takes the ciphertext byte array as input and returns the decrypted result as a byte array.
+
+String(byteArray, "UTF-8"): This constructor creates a string from the decrypted byte array using the UTF-8 encoding. It converts the byte array back into a string representation.
+
+"UTF-8": This parameter specifies the character encoding used when converting the decrypted byte array to a string. In this case, UTF-8 encoding is used, assuming that the original plaintext was encoded using UTF-8.
